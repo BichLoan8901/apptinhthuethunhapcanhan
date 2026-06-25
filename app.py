@@ -78,7 +78,8 @@ def tinh_thue_tncn(gross, bonus, overtime, lunch, other, deps):
     temp_income = assessable_income
     previous_limit = 0
     tax_breakdown = []
-    for b in brackets: range_size = b["limit"] - previous_limit
+    for b in brackets: 
+        range_size = b["limit"] - previous_limit
         if temp_income > 0:
             taxable_in_bracket = min(temp_income, range_size)
             tax_in_bracket = taxable_in_bracket * b["rate"]
@@ -141,5 +142,5 @@ if st.button("🧮 Tính Thuế & Nhận Kết Quả", type="primary"):
     if res['tax'] > 0:
         st.write("📊 **Chi tiết phân tách số tiền nộp theo biểu thuế 5 bậc mới (2026):**")
         st.table(res['tax_breakdown'])
-    else:
+    else: 
         st.success("Tuyệt vời! Sau khi trừ các khoản phụ cấp miễn thuế và giảm trừ gia cảnh, thu nhập tính thuế của bạn bằng 0 nên không cần phải nộp thuế TNCN.")
